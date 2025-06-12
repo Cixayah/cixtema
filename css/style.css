@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --dracula-bg: #282a36;
+  --dracula-current-line: #44475a;
+  --dracula-selection: #44475a;
+  --dracula-foreground: #f8f8f2;
+  --dracula-comment: #6272a4;
+  --dracula-cyan: #8be9fd;
+  --dracula-green: #50fa7b;
+  --dracula-orange: #ffb86c;
+  --dracula-pink: #ff79c6;
+  --dracula-purple: #bd93f9;
+  --dracula-red: #ff5555;
+  --dracula-yellow: #f1fa8c;
+}
+
+body {
+  font-family: 'JetBrains Mono', monospace;
+  background: var(--dracula-bg);
+  color: var(--dracula-foreground);
+}
+
+.dracula-card {
+  background: var(--dracula-current-line);
+  border: 1px solid var(--dracula-selection);
+}
+
+.dracula-input {
+  background: var(--dracula-bg);
+  border: 1px solid var(--dracula-selection);
+  color: var(--dracula-foreground);
+}
+
+.dracula-input:focus {
+  border-color: var(--dracula-purple);
+  box-shadow: 0 0 0 2px rgba(189, 147, 249, 0.2);
+}
+
+.btn-primary {
+  background: var(--dracula-purple);
+  color: var(--dracula-bg);
+}
+
+.btn-primary:hover {
+  background: var(--dracula-pink);
+}
+
+.btn-success {
+  background: var(--dracula-green);
+  color: var(--dracula-bg);
+}
+
+.btn-success:hover {
+  background: var(--dracula-cyan);
+}
+
+.btn-danger {
+  background: var(--dracula-red);
+  color: var(--dracula-foreground);
+}
+
+.btn-danger:hover {
+  background: #ff6b6b;
+}
+
+.btn-secondary {
+  background: var(--dracula-comment);
+  color: var(--dracula-foreground);
+}
+
+.btn-secondary:hover {
+  background: var(--dracula-selection);
+}
+
+.customer-card {
+  background: var(--dracula-current-line);
+  border-left: 4px solid var(--dracula-purple);
+}
+
+.customer-card:hover {
+  border-left-color: var(--dracula-pink);
+  background: rgba(68, 71, 90, 0.8);
+}
+
+.search-highlight {
+  background: var(--dracula-yellow);
+  color: var(--dracula-bg);
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+.loading {
+  color: var(--dracula-cyan);
+}
+
+.error-text {
+  color: var(--dracula-red);
+}
+
+.success-text {
+  color: var(--dracula-green);
+}
+
+.modal-backdrop {
+  background: rgba(40, 42, 54, 0.9);
+}
+
+.notification {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500;
+}
+
+.glow {
+  box-shadow: 0 0 20px rgba(189, 147, 249, 0.3);
+}
+
+.pulse-animation {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.gradient-text {
+  background: linear-gradient(
+    45deg,
+    var(--dracula-purple),
+    var(--dracula-pink),
+    var(--dracula-cyan)
+  );
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient 3s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}

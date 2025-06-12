@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD de clientes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <div class="max-w-7xl mx-auto">
+            <!-- Header -->
+            <div class="text-center mb-8">
+                <h1 class="text-5xl font-bold gradient-text mb-4">
+                    <i class="fas fa-terminal mr-3"></i>Cixtema de Clientes
+                </h1>
+                <p class="text-xl" style="color: var(--dracula-comment);">
+                    Gerencie os clientes
+                </p>
+            </div>
+
+            <!-- Busca -->
+            <div class="dracula-card rounded-2xl p-6 mb-8 glow">
+                <div class="flex flex-col md:flex-row gap-4 items-center">
+                    <div class="flex-1 relative">
+                        <i class="fas fa-search absolute left-4 top-1/2 transform -translate-y-1/2"
+                            style="color: var(--dracula-comment);"></i>
+                        <input type="text" id="search-input" placeholder="Buscar por nome ou CPF..."
+                            class="dracula-input w-full pl-12 pr-4 py-4 rounded-lg text-lg font-medium focus:outline-none transition-all duration-300">
+                    </div>
+                    <button id="search-btn"
+                        class="btn-primary px-8 py-4 rounded-lg font-medium transition-all duration-300 hover:scale-105">
+                        <i class="fas fa-search mr-2"></i>Buscar
+                    </button>
+                    <button id="clear-search-btn"
+                        class="btn-secondary px-6 py-4 rounded-lg font-medium transition-all duration-300">
+                        <i class="fas fa-times mr-2"></i>Limpar
+                    </button>
+                </div>
+
+                <div id="search-info" class="mt-4 text-center hidden">
+                    <span style="color: var(--dracula-cyan);">
+                        <i class="fas fa-info-circle mr-2"></i>
+                        Digite o nome ou CPF e clique em "Buscar" para encontrar clientes
+                    </span>
+                </div>
+            </div>
+
+            <!-- Formulário -->
+            <div id="form-container" class="dracula-card rounded-2xl p-8 mb-8 hidden">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-3xl font-semibold" style="color: var(--dracula-purple);" id="form-title">
+                        <i class="fas fa-user-plus mr-3"></i>Novo cliente
+                    </h2>
+                    <button id="toggle-form-btn" class="btn-secondary px-4 py-2 rounded-lg">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+
+                <form id="customer-form" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="space-y-2">
+                        <label class="block text-sm font-medium" style="color: var(--dracula-cyan);">
+                            <i class="fas fa-user mr-2"></i>Nome Completo
+                        </label>
+                        <input type="text" id="name" required
+                            class="dracula-input w-full px-4 py-3 rounded-lg focus:outline-none transition-all duration-200">
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="block text-sm font-medium" style="color: var(--dracula-cyan);">
+                            <i class="fas fa-phone mr-2"></i>Telefone
+                        </label>
+                        <input type="tel" id="phone" required placeholder="(11) 99999-9999"
+                            class="dracula-input w-full px-4 py-3 rounded-lg focus:outline-none transition-all duration-200">
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="block text-sm font-medium" style="color: var(--dracula-cyan);">
+                            <i class="fas fa-envelope mr-2"></i>E-mail
+                        </label>
+                        <input type="email" id="email" required
+                            class="dracula-input w-full px-4 py-3 rounded-lg focus:outline-none transition-all duration-200">
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="block text-sm font-medium" style="color: var(--dracula-cyan);">
+                            <i class="fas fa-map-marker-alt mr-2"></i>Endereço
+                        </label>
+                        <input type="text" id="address" required
+                            class="dracula-input w-full px-4 py-3 rounded-lg focus:outline-none transition-all duration-200">
+                        <input type="text" id="city" required
+                            class="dracula-input w-full px-4 py-3 rounded-lg focus:outline-none transition-all duration-200">
+
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="block text-sm font-medium" style="color: var(--dracula-cyan);">
+                            <i class="fas fa-hashtag mr-2"></i>Número
+                        </label>
+                        <input type="text" id="number" required
+                            class="dracula-input w-full px-4 py-3 rounded-lg focus:outline-none transition-all duration-200">
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="block text-sm font-medium" style="color: var(--dracula-cyan);">
+                            <i class="fas fa-building mr-2"></i>Bairro
+                        </label>
+                        <input type="text" id="neighborhood" required
+                            class="dracula-input w-full px-4 py-3 rounded-lg focus:outline-none transition-all duration-200">
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="block text-sm font-medium" style="color: var(--dracula-cyan);">
+                            <i class="fas fa-id-card mr-2"></i>RG
+                        </label>
+                        <input type="text" id="rg" required placeholder="00.000.000-0"
+                            class="dracula-input w-full px-4 py-3 rounded-lg focus:outline-none transition-all duration-200">
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="block text-sm font-medium" style="color: var(--dracula-cyan);">
+                            <i class="fas fa-address-card mr-2"></i>CPF
+                        </label>
+                        <input type="text" id="cpf" required placeholder="000.000.000-00"
+                            class="dracula-input w-full px-4 py-3 rounded-lg focus:outline-none transition-all duration-200">
+                    </div>
+
+                    <div class="md:col-span-2 lg:col-span-3 flex gap-4 pt-6">
+                        <button type="submit" id="submit-btn"
+                            class="btn-success px-8 py-3 rounded-lg font-medium transition-all duration-200 hover:scale-105">
+                            <i class="fas fa-save mr-2"></i>Cadastrar
+                        </button>
+                        <button type="button" id="cancel-btn" style="display: none;"
+                            class="btn-secondary px-8 py-3 rounded-lg font-medium transition-all duration-200">
+                            <i class="fas fa-times mr-2"></i>Cancelar
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Botão para mostrar formulário -->
+            <div class="text-center mb-8">
+                <button id="show-form-btn"
+                    class="btn-primary px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 hover:scale-105 glow">
+                    <i class="fas fa-plus mr-3"></i>Adicionar cliente
+                </button>
+            </div>
+
+            <!-- Loading -->
+            <div id="loading" class="text-center py-12 hidden">
+                <div class="loading text-6xl mb-4 pulse-animation">
+                    <i class="fas fa-spinner fa-spin"></i>
+                </div>
+                <p class="text-xl loading">Carregando clientes...</p>
+            </div>
+
+            <!-- Lista de clientes -->
+            <div id="customers-container">
+                <div id="no-data" class="text-center py-16">
+                    <div class="text-8xl mb-6" style="color: var(--dracula-comment);">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4" style="color: var(--dracula-purple);">
+                        Nenhum cliente encontrado
+                    </h3>
+                    <p class="text-lg" style="color: var(--dracula-comment);">
+                        Use a busca acima para encontrar clientes ou adicione um novo cliente
+                    </p>
+                </div>
+
+                <div id="customers-list" class="space-y-6 hidden">
+                    <!-- Lista será preenchida dinamicamente -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Confirmação -->
+    <div id="delete-modal" class="fixed inset-0 modal-backdrop flex items-center justify-center z-50 hidden">
+        <div class="dracula-card p-8 rounded-2xl max-w-md w-full mx-4 glow">
+            <div class="text-center">
+                <div class="text-6xl mb-4 error-text">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-4" style="color: var(--dracula-red);">
+                    Confirmar Exclusão
+                </h3>
+                <p class="text-lg mb-8" style="color: var(--dracula-comment);">
+                    Tem certeza que deseja excluir este cliente? Esta ação não pode ser desfeita.
+                </p>
+                <div class="flex gap-4 justify-center">
+                    <button id="cancel-delete" class="btn-secondary px-6 py-3 rounded-lg font-medium">
+                        <i class="fas fa-times mr-2"></i>Cancelar
+                    </button>
+                    <button id="confirm-delete" class="btn-danger px-6 py-3 rounded-lg font-medium">
+                        <i class="fas fa-trash mr-2"></i>Excluir
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
