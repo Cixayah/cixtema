@@ -2,7 +2,7 @@
 
 class customerManager {
     constructor() {
-        this.apiUrl = 'http://localhost:3000/customers';
+        this.apiUrl = 'https://crud-api-wheat.vercel.app/customers';
         this.currentcustomers = [];
         this.editingId = null;
         this.currentSearch = '';
