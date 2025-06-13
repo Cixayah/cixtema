@@ -356,81 +356,82 @@ class CustomerManager {
         const highlightedCPF = highlightText(customer.cpf, this.currentSearch);
 
         return `
-            <div class="customer-card p-6 rounded-2xl transition-all duration-300 hover:scale-[1.02]">
-                <div class="flex items-start justify-between">
-                    <div class="flex-1">
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                            <div class="space-y-3">
-                                <div>
-                                    <h4 class="text-xl font-bold mb-1" style="color: var(--dracula-purple);">
-                                        <i class="fas fa-user mr-2"></i>${highlightedName}
-                                    </h4>
-                                    <p class="text-sm" style="color: var(--dracula-comment);">
-                                        ID: ${customer.id}
-                                    </p>
-                                </div>
-                                <div class="space-y-2">
-                                    <p class="text-sm">
-                                        <i class="fas fa-phone mr-2" style="color: var(--dracula-cyan);"></i>
-                                        <span style="color: var(--dracula-foreground);">${customer.phone || ''}</span>
-                                    </p>
-                                    <p class="text-sm">
-                                        <i class="fas fa-envelope mr-2" style="color: var(--dracula-cyan);"></i>
-                                        <span style="color: var(--dracula-foreground);">${customer.email || ''}</span>
-                                    </p>
-                                </div>
-                            </div>
-                            
-                            <div class="space-y-3">
-                                <h5 class="font-semibold" style="color: var(--dracula-green);">
-                                    <i class="fas fa-map-marker-alt mr-2"></i>Endereço
-                                </h5>
-                                <div class="space-y-2">
-                                    <p class="text-sm" style="color: var(--dracula-foreground);">
-                                        ${customer.address || ''}, ${customer.number || ''}
-                                    </p>
-                                    <p class="text-sm" style="color: var(--dracula-yellow);">
-                                        <span style="color: var(--dracula-comment);">Bairro:</span>
-                                        ${customer.neighborhood || ''}
-                                    </p>
-                                    <p class="text-sm" style="color: var(--dracula-pink);">
-                                        <span style="color: var(--dracula-comment);">Cidade:</span>
-                                        ${customer.city || ''}
-                                    </p>
-                                </div>
-                            </div>
-                            
-                            <div class="space-y-3">
-                                <h5 class="font-semibold" style="color: var(--dracula-yellow);">
-                                    <i class="fas fa-id-card mr-2"></i>Documentos
-                                </h5>
-                                <div class="space-y-2">
-                                    <p class="text-sm">
-                                        <span style="color: var(--dracula-comment);">RG:</span>
-                                        <span style="color: var(--dracula-foreground);"> ${customer.rg || ''}</span>
-                                    </p>
-                                    <p class="text-sm">
-                                        <span style="color: var(--dracula-comment);">CPF:</span>
-                                        <span style="color: var(--dracula-foreground);"> ${highlightedCPF}</span>
-                                    </p>
-                                </div>
-                            </div>
+    <div class="customer-card p-4 sm:p-6 rounded-2xl transition-all duration-300 hover:scale-[1.02]">
+        <div class="flex flex-col md:flex-row md:items-start md:justify-between">
+            <div class="flex-1">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                    <div class="space-y-2 sm:space-y-3">
+                        <div>
+                            <h4 class="text-lg sm:text-xl font-bold mb-1" style="color: var(--dracula-purple);">
+                                <i class="fas fa-user mr-2"></i>${highlightedName}
+                            </h4>
+                            <p class="text-xs sm:text-sm" style="color: var(--dracula-comment);">
+                                ID: ${customer.id}
+                            </p>
+                        </div>
+                        <div class="space-y-1 sm:space-y-2">
+                            <p class="text-xs sm:text-sm">
+                                <i class="fas fa-phone mr-2" style="color: var(--dracula-cyan);"></i>
+                                <span style="color: var(--dracula-foreground);">${customer.phone || ''}</span>
+                            </p>
+                            <p class="text-xs sm:text-sm">
+                                <i class="fas fa-envelope mr-2" style="color: var(--dracula-cyan);"></i>
+                                <span style="color: var(--dracula-foreground);">${customer.email || ''}</span>
+                            </p>
                         </div>
                     </div>
                     
-                    <div class="flex flex-col gap-3 ml-6">
-                        <button onclick="window.customerManagerInstance.editCustomer(${customer.id})" 
-                                class="btn-primary px-6 py-3 rounded-lg font-medium transition-all duration-200 hover:scale-105">
-                            <i class="fas fa-edit mr-2"></i>Editar
-                        </button>
-                        <button onclick="window.customerManagerInstance.showDeleteModal(${customer.id})" 
-                                class="btn-danger px-6 py-3 rounded-lg font-medium transition-all duration-200 hover:scale-105">
-                            <i class="fas fa-trash mr-2"></i>Excluir
-                        </button>
+                    <div class="space-y-2 sm:space-y-3">
+                        <h5 class="font-semibold text-sm sm:text-base" style="color: var(--dracula-green);">
+                            <i class="fas fa-map-marker-alt mr-2"></i>Endereço
+                        </h5>
+                        <div class="space-y-1 sm:space-y-2">
+                            <p class="text-xs sm:text-sm" style="color: var(--dracula-foreground);">
+                                ${customer.address || ''}, ${customer.number || ''}
+                            </p>
+                            <p class="text-xs sm:text-sm" style="color: var(--dracula-yellow);">
+                                <span style="color: var(--dracula-comment);">Bairro:</span>
+                                ${customer.neighborhood || ''}
+                            </p>
+                            <p class="text-xs sm:text-sm" style="color: var(--dracula-pink);">
+                                <span style="color: var(--dracula-comment);">Cidade:</span>
+                                ${customer.city || ''}
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-2 sm:space-y-3">
+                        <h5 class="font-semibold text-sm sm:text-base" style="color: var(--dracula-yellow);">
+                            <i class="fas fa-id-card mr-2"></i>Documentos
+                        </h5>
+                        <div class="space-y-1 sm:space-y-2">
+                            <p class="text-xs sm:text-sm">
+                                <span style="color: var(--dracula-comment);">RG:</span>
+                                <span style="color: var(--dracula-foreground);"> ${customer.rg || ''}</span>
+                            </p>
+                            <p class="text-xs sm:text-sm">
+                                <span style="color: var(--dracula-comment);">CPF:</span>
+                                <span style="color: var(--dracula-foreground);"> ${highlightedCPF}</span>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
-        `;
+
+            <div class="flex flex-row md:flex-col gap-3 md:ml-6 mt-4 md:mt-0 justify-center md:justify-start">
+                <button onclick="window.customerManagerInstance.editCustomer(${customer.id})" 
+                        class="btn-primary px-4 py-2 md:px-6 md:py-3 rounded-lg font-medium transition-all duration-200 hover:scale-105 text-sm md:text-base">
+                    <i class="fas fa-edit mr-2"></i>Editar
+                </button>
+                <button onclick="window.customerManagerInstance.showDeleteModal(${customer.id})" 
+                        class="btn-danger px-4 py-2 md:px-6 md:py-3 rounded-lg font-medium transition-all duration-200 hover:scale-105 text-sm md:text-base">
+                    <i class="fas fa-trash mr-2"></i>Excluir
+                </button>
+            </div>
+        </div>
+    </div>
+`;
+
     }
 
     // Modal Management
