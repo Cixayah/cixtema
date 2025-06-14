@@ -1,5 +1,3 @@
-// app.js - Sistema CRUD de clientes (CORRIGIDO)
-
 class CustomerManager {
     constructor() {
         this.apiUrl = 'https://crud-api-ashy.vercel.app/customers/';
